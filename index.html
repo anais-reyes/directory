@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <section class="presentation">
+        <h3 class="has-text-weight-semibold is-size-5">Users</h3>
+        <p>
+          If you want to get contact information to specific user, just select
+          her/him from the list below
+        </p>
+      </section>
+      <section class="dropdown-section">
+        <span class="has-text-weight-medium">Select group of users</span>
+        <div class="dropdown ">
+          <div class="dropdown-trigger">
+            <button
+              class="button"
+              aria-haspopup="true"
+              aria-controls="dropdown-menu"
+            >
+              <span id="filter-button">Filter users</span>
+              <span class="icon is-small">
+                <i class="fas fa-angle-down" aria-hidden="true"></i>
+              </span>
+            </button>
+          </div>
+          <div class="dropdown-menu" id="" role="menu">
+            <div class="dropdown-content none" id="gender-dropdown"></div>
+          </div>
+        </div>
+      </section>
+      <div class="columns">
+        <section class="section column" id="users"></section>
+        <section class="column" id="single-user">
+          <div id="blurred-picture"></div>
+        </section>
+      </div>
+    </main>
+    <script src="js/main.js"></script>
+  </body>
+</html>
