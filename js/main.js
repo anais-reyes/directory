@@ -1,5 +1,4 @@
 function init() {
-  sessionStorage.clear();
   dropdownClick();
   fetchUsers();
 }
@@ -51,11 +50,10 @@ function displayOptions(genderArray) {
 //Function that filters users by gender
 function selectGender(e) {
   document.getElementById('filter-button').innerText = e.innerText;
+  console.log(e.innerText);
   if (e.innerText === 'All Users') {
-    sessionStorage.setItem('gender', null);
     displayUsers(JSON.parse(sessionStorage.getItem('users')));
   } else {
-    sessionStorage.setItem('gender', true);
     let filteredUsers = JSON.parse(sessionStorage.getItem('users')).filter(
       element => element.gender.toLowerCase() === e.innerText.toLowerCase()
     );
@@ -66,17 +64,11 @@ function selectGender(e) {
 //Function to add active-class to selected user
 function selectUser(e) {
   let containers = document.querySelectorAll('.user-container');
-  if (JSON.parse(sessionStorage.getItem('gender'))) {
-    Array.from(containers).forEach(element => {
-      element.classList.remove('active-user');
-    });
-    e.classList.add('active-user');
-    findUser(e.dataset.email);
-  } else {
-    document.getElementById(
-      'single-user'
-    ).innerHTML = `<p>Select a group to see contact information</p>`;
-  }
+  Array.from(containers).forEach(element => {
+    element.classList.remove('active-user');
+  });
+  e.classList.add('active-user');
+  findUser(e.dataset.email);
 }
 
 //Function to find the user after the click event
